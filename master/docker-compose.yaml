@@ -1,13 +1,13 @@
 version: '3'
 services:
-    jenkins_master01:
-        image: centos-jenkins-master:2.150.3
+    jenkins:
+        image: jenkins/jenkins:lts 
         container_name: jenkins
-        user: '1000'
+        user: '1985601108'
         volumes:
-            - /home/amaterasu48/jenkins_data/masters/jenkins:/var/jenkins_home
+            - /data/jenkins:/var/jenkins_home
         ports:
-            - '1000:8080'
+            - '80:8080'
             - '2000:2000'
         networks:
             - jenkins_network
@@ -16,6 +16,6 @@ services:
             - JENKINS_SLAVE_AGENT_PORT=2000
             - JENKINS_JAVA_OPTIONS=-Djava.awt.headless=true
             - JENKINS_LOG=/var/jenkins_home/logs/jenkins.log
-        command: --enable-future-java
+        #command: --enable-future-java
 networks:
     jenkins_network:
