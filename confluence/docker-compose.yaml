@@ -1,0 +1,11 @@
+version: '3'
+services:
+    confluence:
+       image: atlassian/confluence-server
+       # user: '1000'
+       ports:
+            - '8090:8090'
+       volumes:
+            - /home/amaterasu48/data/confluence:/var/atlassian/application-data/confluence
+       container_name: confluence
+       restart: unless-stopped
