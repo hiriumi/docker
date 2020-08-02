@@ -7,7 +7,7 @@ services:
         volumes:
             - ./jenkins_home:/var/jenkins_home
         ports:
-            - '80:8080'
+            - '8080:8080'
             - '2000:2000'
         networks:
             - jenkins_network
