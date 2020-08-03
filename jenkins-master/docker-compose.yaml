@@ -10,7 +10,7 @@ services:
             - '8080:8080'
             - '2000:2000'
         networks:
-            - jenkins_network
+            - docker_network 
         restart: unless-stopped
         environment: 
             - JENKINS_SLAVE_AGENT_PORT=2000
@@ -18,4 +18,4 @@ services:
             - JENKINS_LOG=/var/jenkins_home/logs/jenkins.log
         #command: --enable-future-java
 networks:
-    jenkins_network:
+    docker_network:
