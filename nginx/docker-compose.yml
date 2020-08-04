@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
     reverse:
         image: nginx:latest
@@ -9,6 +9,7 @@ services:
             - "80:80"
             - "443:443"
         networks:
-            docker_network:
+            proxynet:
 networks:
-    docker_network:
+    proxynet:
+        name: custom_network 
