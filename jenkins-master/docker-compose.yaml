@@ -1,13 +1,13 @@
 version: '3.8'
 services:
     jenkins:
-        image: jenkins/jenkins:2.249.1
+        image: jenkins/jenkins:2.263.1
         container_name: jenkins
         user: '1000'
         volumes:
             - ./jenkins_home:/var/jenkins_home
         ports:
-            #- '8080:8080'
+            - '8443:8080'
             - '2000:2000'
         networks:
             - docker_network 
