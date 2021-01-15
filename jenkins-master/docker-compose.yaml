@@ -1,13 +1,14 @@
 version: '3.8'
 services:
     jenkins:
-        image: jenkins/jenkins:2.263.1
+        image: jenkins/jenkins:2.263.2
         container_name: jenkins
         user: '1000'
         volumes:
             - ./jenkins_home:/var/jenkins_home
         ports:
             - '8080:8080' # This port does not have to be exposed with NGINX as a reserve proxy
+            - '50000:50000'
         networks:
             - docker_network 
         restart: unless-stopped
