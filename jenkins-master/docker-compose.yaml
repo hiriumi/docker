@@ -1,7 +1,7 @@
 version: '3.8'
 services:
     jenkins:
-        image: jenkins/jenkins:2.263.2
+        image: jenkins/jenkins:2.263.3
         container_name: jenkins
         user: '1000'
         volumes:
