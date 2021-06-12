@@ -24,5 +24,7 @@ services:
       WORDPRESS_DB_USER: blog_admin
       WORDPRESS_DB_PASSWORD: Datalabs12345!
       WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./html:/var/www/html
 volumes:
   db_data: {}
