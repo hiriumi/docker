@@ -8,7 +8,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: somewordpress
-      MYSQL_DATABASE: wordpress
+      MYSQL_DATABASE: hayato_iriumi_db
       MYSQL_USER: blog_admin
       MYSQL_PASSWORD: Datalabs12345!
   
@@ -34,6 +34,7 @@ services:
       WORDPRESS_DB_USER: blog_admin
       WORDPRESS_DB_PASSWORD: Datalabs12345!
       WORDPRESS_DB_NAME: hayato_iriumi_db
+      WORDPRESS_DEBUG: 'true'
     volumes:
       - ./html:/var/www/html
 volumes:
