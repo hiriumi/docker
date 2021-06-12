@@ -37,5 +37,6 @@ services:
       WORDPRESS_DEBUG: 'true'
     volumes:
       - ./html:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
 volumes:
   db_data: {}
