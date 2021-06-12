@@ -11,7 +11,17 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: blog_admin
       MYSQL_PASSWORD: Datalabs12345!
-    
+  
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: somewordpress
   wordpress:
     depends_on:
       - db
