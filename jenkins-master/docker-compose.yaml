@@ -1,13 +1,13 @@
 version: '3.8'
 services:
     jenkins:
-        image: jenkins/jenkins:2.277.1
+        image: jenkins/jenkins:latest
         container_name: jenkins
         user: '1000'
         volumes:
             - ./jenkins_home:/var/jenkins_home
         ports:
-            - '8080:8080' # This port does not have to be exposed with NGINX as a reserve proxy
+            # - '8080:8080'
             - '50000:50000'
         networks:
             - docker_network 
@@ -16,6 +16,17 @@ services:
             - JENKINS_JAVA_OPTIONS=-Djava.awt.headless=true
             - JENKINS_LOG=/var/jenkins_home/logs/jenkins.log
         #command: --enable-future-java
+    reverse_proxy:
+        image: nginx:latest
+        volumes:
+            - ./data/nginx.conf:/etc/nginx/nginx.conf
+            - ./data/conf.d:/etc/nginx/conf.d
+        ports:
+            - "80:80"
+            - "443:443"
+        networks:
+            proxynet:
+        restart: always
 networks:
     docker_network:
         external: 
