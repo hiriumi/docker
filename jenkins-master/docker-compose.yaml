@@ -29,11 +29,11 @@ services:
         networks:
             proxynet:
         restart: always
-    certbot:
-        image: certbot/certbot
-    volumes:
-        - ./nginx/certbot/conf:/etc/letsencrypt
-        - ./nginx/certbot/www:/var/www/certbot
+    # certbot:
+    #     image: certbot/certbot
+    # volumes:
+    #     - ./nginx/certbot/conf:/etc/letsencrypt
+    #     - ./nginx/certbot/www:/var/www/certbot
 networks:
         proxynet: 
             name: custom_network
